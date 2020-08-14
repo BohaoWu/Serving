@@ -8,11 +8,13 @@ repos:
     sha: 0d79c0c469bab64f7229c9aca2b1186ef47f0e37
     hooks:
     -   id: yapf
+        entry: bash -c 'yapf "$@"; git add -u' --
         files: (.*\.(py|bzl)|BUILD|.*\.BUILD|WORKSPACE)$
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     sha: 5bf6c09bfa1297d3692cadd621ef95f1284e33c0
     hooks:
     -   id: check-added-large-files
+        args: ['--maxkb=50000000']
     -   id: check-merge-conflict
     -   id: check-symlinks
     -   id: detect-private-key

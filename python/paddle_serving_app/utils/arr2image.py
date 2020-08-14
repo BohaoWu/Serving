@@ -13,7 +13,7 @@
 # limitations under the License.
 
 import cv2
-import yaml
+
 
 class Arr2Image(object):
     """
