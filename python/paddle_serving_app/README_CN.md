@@ -112,6 +112,27 @@ paddle_serving_app针对CV和NLP领域的模型任务，提供了多种常见的
   - `__call__(img)`
     - img（numpy array）：输入图像
 
+- class AudioFeatureOp
+    
+    音频提取Op
+
+  - `extract_audio_from_video(self, local_video_path)`
+    - local_video_path（str）：视频文件路径。
+
+- class FrameExtractOp
+    
+    视频抽帧Op
+
+  - `preprocess(self, input_dict)`
+    - input_dict（dict）：转化为byte的视频文件。
+
+- class Arr2Image
+    
+    将矩阵形式的图片转化为cv::Mat image。
+
+  - `preprocess(self, input_dict)`
+    - input_dict（dict）：转化为byte的视频文件。
+
 ## Timeline 工具
 
 通过Timeline工具可以将预测服务的准备数据、client等待、server端op等各阶段起止时间可视化，方便分析预测服务中的时间占用比重，在此基础上有针对性地优化预测服务。

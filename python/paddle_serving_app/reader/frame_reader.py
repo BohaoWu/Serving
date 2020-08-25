@@ -30,21 +30,6 @@ _LOGGER = logging.getLogger(__name__)
 class FrameExtractOp(Op):
     """ frame extract op """
 
-    def init_op(self):
-        """
-        overwrite init_op function to load custom resources.
-
-        note: 
-        since only one frame_extractor instance can run on
-        each gpu card, this op can only start one single thread.
-        """
-        pipeline_config = util.load_config(sys.argv[1])
-        self.is_thread = pipeline_config["dag"]["is_thread_op"]
-        op_config = util.load_config(pipeline_config["op_config"])
-
-        self.frame_ext = frame_ext.FrameExt()
-        self.frame_ext.init_handler(op_config["frame_extract_card"])
-
     def preprocess(self, input_dict):
         """ extract frame """
         (_, input_data), = input_dict.items()

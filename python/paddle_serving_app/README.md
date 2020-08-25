@@ -120,6 +120,28 @@ Preprocessing for Chinese word segmentation task.
     - img（numpy array）：Image data.
 
 
+- class AudioFeatureOp
+    
+    Op extracts audio from video.
+
+  - `extract_audio_from_video(self, local_video_path)`
+    - local_video_path（str）：The path stores video file。
+
+- class FrameExtractOp
+    
+    Op extracts frame from video.
+
+  - `preprocess(self, input_dict)`
+    - input_dict（dict）：Transform video into byte file。
+
+- class Arr2Image
+    
+    Tarnsform numpy format photo into cv::Mat image。
+
+  - `preprocess(self, input_dict)`
+    - input_dict（dict）：Video file has benn transformed into byte file。
+
+
 ## Timeline tools
 
 The Timeline tool can be used to visualize the start and end time of various stages such as the preparation data of the prediction service, client wait and server op.
