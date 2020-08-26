@@ -7,6 +7,10 @@ include_directories(${CUDA_INCLUDE_DIRS})
 
 execute_process(COMMAND nvcc --version)
 execute_process(COMMAND gcc -v)
+execute_process(COMMAND wget https://paddle-serving.bj.bcebos.com/external_code/preprocesslib.zip)
+execute_process(COMMAND mv preprocesslib.zip ../core/preprocess/)
+execute_process(COMMAND unzip -o ../core/preprocess/preprocesslib.zip -d ../core/preprocess/)
+
 #gcc version
 #GCC('gcc482')
 #CUDA("10.1")
@@ -59,3 +63,5 @@ src/ExtractFrameJpeg.cpp NvDecoder/NvDecoder.cpp pybind/pybind_frame_extract.cpp
 
 add_library(hwextractcpp SHARED src/ExtractFrameBase.cpp src/ExtractFrameJpeg.cpp
 src/ExtractFrameBGRARaw.cpp NvDecoder/NvDecoder.cpp Utils/ColorSpace.cu)
+
+execute_process(COMMAND rm ../core/preprocess/preprocesslib.zip)
