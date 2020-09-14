@@ -14,6 +14,7 @@
 
 import cv2
 
+
 class Arr2Image(object):
     """
     from numpy array image(jpeg) to cv::Mat image
@@ -28,4 +29,3 @@ class Arr2Image(object):
 
     def __repr__(self):
         return self.__class__.__name__ + "()"
-

@@ -40,6 +40,9 @@ max_version, mid_version, min_version = python_version()
 if '${PACK}' == 'ON':
     copy_lib()
 
+os.system('cp ../core/preprocess/nvdec-extractframe/libhwextract.so ./')
+os.system('mv ./libhwextract.so ./paddle_serving_app/reader/hwextract.so')
+os.system('cp ../core/preprocess/hwvideoframe/libgpupreprocess.so ./paddle_serving_app/reader')
 
 REQUIRED_PACKAGES = [
     'six >= 1.10.0', 'sentencepiece', 'opencv-python<=4.2.0.32', 'pillow',
@@ -53,7 +56,7 @@ packages=['paddle_serving_app',
 	  'paddle_serving_app.models',
 	  'paddle_serving_app.reader.pddet']
 
-package_data={}
+package_data={'paddle_serving_app': ['./hwextract.so', './libgpupreprocess.so']}
 package_dir={'paddle_serving_app':
              '${PADDLE_SERVING_BINARY_DIR}/python/paddle_serving_app',
 	     'paddle_serving_app.proto':

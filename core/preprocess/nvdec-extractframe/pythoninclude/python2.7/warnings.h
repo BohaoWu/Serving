@@ -1,0 +1,36 @@
+// Copyright (c) 2020 PaddlePaddle Authors. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+#ifndef Py_WARNINGS_H
+#define Py_WARNINGS_H
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+PyAPI_FUNC(void) _PyWarnings_Init(void);
+
+PyAPI_FUNC(int) PyErr_WarnEx(PyObject *, const char *, Py_ssize_t);
+PyAPI_FUNC(int) PyErr_WarnExplicit(PyObject *, const char *, const char *, int,
+                                    const char *, PyObject *);
+
+#define PyErr_WarnPy3k(msg, stacklevel) \
+  (Py_Py3kWarningFlag ? PyErr_WarnEx(PyExc_DeprecationWarning, msg, stacklevel) : 0)
+
+/* DEPRECATED: Use PyErr_WarnEx() instead. */
+#define PyErr_Warn(category, msg) PyErr_WarnEx(category, msg, 1)
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* !Py_WARNINGS_H */

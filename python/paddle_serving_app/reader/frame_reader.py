@@ -69,4 +69,3 @@ class FrameExtractOp(Op):
             #    break
         output_dict = {"frame_batches": frame_batches, "seq": None}
         return output_dict
-
