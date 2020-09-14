@@ -11,13 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import libgpupreprocess
+
 from .audio_reader import AudioFeatureOp
 from .chinese_bert_reader import ChineseBertReader
+from .frame_reader import FrameExtractOp
 from .image_reader import ImageReader, File2Image, URL2Image, Sequential, Normalize
 from .image_reader import CenterCrop, Resize, Transpose, Div, RGB2BGR, BGR2RGB, ResizeByFactor
 from .image_reader import RCNNPostprocess, SegPostprocess, PadStride
 from .image_reader import DBPostProcess, FilterBoxes, GetRotateCropImage, SortedBoxes
-from .frame_reader import FrameExtractOp
 from .lac_reader import LACReader
 from .senta_reader import SentaReader
 from .imdb_reader import IMDBDataset

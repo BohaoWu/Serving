@@ -20,6 +20,7 @@ import ffmpeg
 import numpy
 import logging
 import cv2
+import adpredictor as adpredictor
 
 try:
     from paddle_serving_server.pipeline import Op
