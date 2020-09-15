@@ -12,4 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+<<<<<<< HEAD
 from .arr2image import Arr2Image
+=======
+from .arr2image import Arr2Image
+>>>>>>> bc4ff4fa765b1fcd6190faa393b927b5730987f7

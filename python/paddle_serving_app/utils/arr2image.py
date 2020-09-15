@@ -14,7 +14,6 @@
 
 import cv2
 
-
 class Arr2Image(object):
     """
     from numpy array image(jpeg) to cv::Mat image

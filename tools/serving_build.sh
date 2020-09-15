@@ -891,6 +891,9 @@ function python_app_api_test(){
     case $TYPE in
         CPU)
             check_cmd "python test_image_reader.py"
+            check_cmd "python test_audio_reader.py"
+            check_cmd "python test_frame_reader.py"
+            check_cmd "python test_functional.py"
             ;;
         GPU)
             echo "no implement for cpu type"
